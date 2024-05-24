@@ -3,7 +3,7 @@ set -e
 
 if [ -e "/opt/airflow/requirements.txt" ]; then
   $(command python) pip install --upgrade pip
-  $(command -v pip) install --user -r requirements.txt
+  $(command -v pip) install --no-cache-dir "apache-airflow==${AIRFLOW_VERSION}"  -r requirements.txt
 fi
 
 if [ ! -f "/opt/airflow/airflow.db" ]; then
